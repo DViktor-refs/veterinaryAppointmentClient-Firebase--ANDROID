@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AppointmentForYourPet</string>
+
+    <array name="petSpecies">
+        <item>"Kutya"</item>
+        <item>"Macska"</item>
+        <item>"Rágcsáló"</item>
+        <item>"Hal"</item>
+        <item>"Hüllő"</item>
+        <item>"Madár"</item>
+        <item>"Nazgul"</item>
+        <item>"Egyéb"</item>
+    </array>
+
+    <array name="isVaccinated">
+        <item>"nem"</item>
+        <item>"igen"</item>
+    </array>
+
+    <array name="isNeutered">
+        <item>"nem"</item>
+        <item>"igen"</item>
+    </array>
+
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/drawable/btn_default.xml" value="0.124" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/drawable/btn_pressed.xml" value="0.124" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/drawable/btn_selector.xml" value="0.124" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/drawable/spinner_border.xml" value="0.2105" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_add_pet.xml" value="0.4" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_booking.xml" value="0.264" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_data_base.xml" value="0.264" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_reset_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/activity_usermenu.xml" value="0.264" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/alertdialog_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/login.xml" value="0.264" />
+        <entry key="..\:/opencv/opencv/build/FireBaseLogin/app/src/main/res/layout/register.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

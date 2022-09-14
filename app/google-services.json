@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "289199978376",
+    "firebase_url": "https://fir-login-6574f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fir-login-6574f",
+    "storage_bucket": "fir-login-6574f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289199978376:android:43a0287d3227e641dcac3d",
+        "android_client_info": {
+          "package_name": "com.example.firebaselogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289199978376-uggumnv2f1280bojs2vcsq58hmed176s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFrGdnk42fdL1j6l7-5ZyCQxK7E9YI_Wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289199978376-uggumnv2f1280bojs2vcsq58hmed176s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

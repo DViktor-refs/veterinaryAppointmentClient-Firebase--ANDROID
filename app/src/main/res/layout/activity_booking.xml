@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundGravity="center"
+    tools:context=".activities.UserActivity">
+
+
+    <ImageView
+        android:id="@+id/booking_iv_logo"
+        android:layout_width="62dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/catlogo" />
+
+    <TextView
+        android:id="@+id/booking_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Üdvözlöm"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/booking_iv_logo" />
+
+    <TextView
+        android:id="@+id/booking_tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/booking_tv_title"
+        app:layout_constraintStart_toStartOf="@+id/booking_tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/booking_tv_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <CalendarView
+        android:id="@+id/booking_calendarview"
+        android:layout_width="385dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="16dp"
+        android:elevation="8dp"
+        android:firstDayOfWeek="2"
+        android:minDate=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booking_iv_logo" />
+
+    <TextView
+        android:id="@+id/booking_tv_selected_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/booking_calendarview"
+        app:layout_constraintStart_toStartOf="@+id/booking_calendarview"
+        app:layout_constraintTop_toBottomOf="@+id/booking_calendarview" />
+
+    <Spinner
+        android:id="@+id/booking_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/spinner_border"
+        app:layout_constraintTop_toBottomOf="@+id/booking_tv_selected_date"
+        tools:layout_editor_absoluteX="16dp"></Spinner>
+
+    <Button
+        android:id="@+id/booking_btn_reserve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Foglalás"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booking_spinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

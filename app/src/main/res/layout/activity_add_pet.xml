@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/login_iv_logo"
+            android:layout_width="82dp"
+            android:layout_height="83dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/catlogo" />
+
+        <TextView
+            android:id="@+id/Login_tv_logo_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="VETERINARY"
+            android:textColor="@color/lightGreen"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/login_iv_logo"
+            app:layout_constraintStart_toEndOf="@+id/login_iv_logo"
+            app:layout_constraintTop_toTopOf="@+id/login_iv_logo" />
+
+        <TextView
+            android:id="@+id/Login_tv_logo_sec_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clinic"
+            android:textColor="@color/lightGreen"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/Login_tv_logo_main_title"
+            app:layout_constraintTop_toBottomOf="@+id/Login_tv_logo_main_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/addpet_tv_nameOfPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:ems="6"
+        android:text="Kedvenc neve:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_title" />
+
+    <TextView
+        android:id="@+id/addpet_tv_species_spinner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="6"
+        android:text="Állat fajtája:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_nameOfPet" />
+
+    <TextView
+        android:id="@+id/addpet_tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="6"
+        android:text="Kor:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_species_spinner_title" />
+
+    <TextView
+        android:id="@+id/addpet_tv_isvaccinated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="6"
+        android:text="Oltott:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_email" />
+
+    <TextView
+        android:id="@+id/addpet_tv_isvaccinated2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="6"
+        android:text="Ivartalanított:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_isvaccinated" />
+
+    <TextView
+        android:id="@+id/addpet_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Kedvenc hozzáadása"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <Button
+        android:id="@+id/addpet_btn_add"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="KEdvenc hozzáadása"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_spinner_isNeutered" />
+
+    <EditText
+        android:id="@+id/addpet_et_petname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:focusedByDefault="true"
+        android:hint="Kedvenc neve"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_tv_nameOfPet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addpet_tv_nameOfPet" />
+
+    <Spinner
+        android:id="@+id/addpet_spinner_petspecie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/spinner_border"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_tv_species_spinner_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/addpet_et_petname"
+        app:layout_constraintTop_toTopOf="@+id/addpet_tv_species_spinner_title" />
+
+    <Spinner
+        android:id="@+id/addpet_spinner_petIsVaccinated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/spinner_border"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_tv_isvaccinated"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addpet_et_petname"
+        app:layout_constraintTop_toTopOf="@+id/addpet_tv_isvaccinated" />
+
+    <Spinner
+        android:id="@+id/addpet_spinner_isNeutered"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/spinner_border"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_tv_isvaccinated2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addpet_et_petname"
+        app:layout_constraintTop_toTopOf="@+id/addpet_tv_isvaccinated2" />
+
+    <EditText
+        android:id="@+id/addpet_et_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:gravity="center"
+        android:hint="kor"
+        android:inputType="numberSigned"
+        android:maxEms="3"
+        android:minHeight="48dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_tv_email"
+        app:layout_constraintEnd_toEndOf="@+id/addpet_spinner_petspecie"
+        app:layout_constraintStart_toStartOf="@+id/addpet_spinner_petspecie"
+        app:layout_constraintTop_toTopOf="@+id/addpet_tv_email" />
+
+    <TextView
+        android:id="@+id/addpet_tv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:maxEms="2"
+        android:minEms="1"
+        android:text="+"
+        android:textColor="#69A841"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_et_age"
+        app:layout_constraintStart_toEndOf="@+id/addpet_et_age"
+        app:layout_constraintTop_toTopOf="@+id/addpet_et_age" />
+
+    <TextView
+        android:id="@+id/addPet_tv_dec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:ems="2"
+        android:gravity="center"
+        android:maxEms="2"
+        android:minEms="1"
+        android:text="-"
+        android:textColor="#E4814C"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addpet_et_age"
+        app:layout_constraintEnd_toStartOf="@+id/addpet_et_age"
+        app:layout_constraintTop_toTopOf="@+id/addpet_et_age"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

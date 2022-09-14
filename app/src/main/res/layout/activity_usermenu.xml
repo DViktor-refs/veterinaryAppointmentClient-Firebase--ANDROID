@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundGravity="center"
+    tools:context=".activities.UserActivity">
+
+    <ImageView
+        android:id="@+id/booking_iv_logo"
+        android:layout_width="62dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/catlogo" />
+
+    <TextView
+        android:id="@+id/booking_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Üdvözlöm"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/booking_iv_logo" />
+
+    <TextView
+        android:id="@+id/booking_tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/booking_tv_title"
+        app:layout_constraintStart_toStartOf="@+id/booking_tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/booking_tv_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_petnameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Állat neve:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booking_tv_username" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/usermenu_tv_species"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_petName" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/usermenu_tv_age"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_speciesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_species" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/usermenu_tv_isVaccinated"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_ageTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_age" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/usermenu_tv_isNeutered"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_vaccineTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_isVaccinated" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_neuteredTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_isNeutered" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_speciesTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Fajtája:"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_petnameTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_ageTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Kora:"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_speciesTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_vaccineTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Oltva"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_ageTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_neuteredTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Ivaros:"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usermenu_tv_vaccineTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_petName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="100dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usermenu_tv_petnameTitle"
+        app:layout_constraintTop_toTopOf="@+id/usermenu_tv_petnameTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_species"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/usermenu_tv_speciesTitle"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petName"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petName"
+        app:layout_constraintTop_toTopOf="@+id/usermenu_tv_speciesTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_age"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/usermenu_tv_ageTitle"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petName"
+        app:layout_constraintTop_toTopOf="@+id/usermenu_tv_ageTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_isVaccinated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/usermenu_tv_vaccineTitle"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petName"
+        app:layout_constraintTop_toTopOf="@+id/usermenu_tv_vaccineTitle" />
+
+    <TextView
+        android:id="@+id/usermenu_tv_isNeutered"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/usermenu_tv_neuteredTitle"
+        app:layout_constraintEnd_toEndOf="@+id/usermenu_tv_petName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/usermenu_tv_petName"
+        app:layout_constraintTop_toTopOf="@+id/usermenu_tv_neuteredTitle" />
+
+    <Button
+        android:id="@+id/usermenu_btn_booking"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Időpont Foglalás"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

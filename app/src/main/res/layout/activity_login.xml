@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/addpet_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Belépés"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <Button
+        android:id="@+id/reset_btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:elevation="12dp"
+        android:shadowColor="@color/lightGreen"
+        android:text="Belépés"
+        android:textSize="24sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tv_forgotpassword" />
+
+    <EditText
+        android:id="@+id/register_et_flastName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Email address"
+        android:inputType="textWebEmailAddress"
+        android:text="test@test.hu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_tv_title" />
+
+    <EditText
+        android:id="@+id/addpet_spinner_petspecie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:text="qwepoi1234"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_et_flastName" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/login_iv_logo"
+            android:layout_width="82dp"
+            android:layout_height="83dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/catlogo" />
+
+        <TextView
+            android:id="@+id/Login_tv_logo_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="VETERINARY"
+            android:textColor="@color/lightGreen"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/login_iv_logo"
+            app:layout_constraintStart_toEndOf="@+id/login_iv_logo"
+            app:layout_constraintTop_toTopOf="@+id/login_iv_logo" />
+
+        <TextView
+            android:id="@+id/Login_tv_logo_sec_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clinic"
+            android:textColor="@color/lightGreen"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/Login_tv_logo_main_title"
+            app:layout_constraintTop_toBottomOf="@+id/Login_tv_logo_main_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/login_tv_forgotpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Elfelejtette a jelszavát?"
+        android:textColor="#C66436"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/addpet_spinner_petspecie"
+        app:layout_constraintTop_toBottomOf="@+id/addpet_spinner_petspecie" />
+
+    <TextView
+        android:id="@+id/login_tv_notregistered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/black"
+        android:text="Még nem regisztrált?"
+        android:textColor="#C66436"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_tv_forgotpassword"
+        app:layout_constraintStart_toStartOf="@+id/addpet_spinner_petspecie"
+        app:layout_constraintTop_toTopOf="@+id/login_tv_forgotpassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
