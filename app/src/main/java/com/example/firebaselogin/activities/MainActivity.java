@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         initNetworkStateListener();
         initGui();
 
-
         etBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
