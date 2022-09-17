@@ -72,10 +72,10 @@ public class UserActivity extends AppCompatActivity {
                     for (DocumentSnapshot snapshot : task.getResult()) {
                         tvName.setText(snapshot.getString("ownerName"));
                         tvPetName.setText(snapshot.getString("petName"));
-                        tvPetAge.setText(""+snapshot.getLong("petAge"));
-                        tvPetSpecies.setText(snapshot.getString("petSpecies"));
-                        tvPetVaccinated.setText(snapshot.getString("isVaccinated"));
-                        tvPetNeutered.setText(""+snapshot.getBoolean("isNeutared"));
+                        tvPetAge.setText(""+snapshot.getString("petAge"));
+                        tvPetSpecies.setText(snapshot.getString("speciesSpinnerValue"));
+                        tvPetVaccinated.setText(""+snapshot.getString("isVaccinatedValue"));
+                        tvPetNeutered.setText(""+snapshot.getString("isNeutaredValue"));
                     }
                 }
             }

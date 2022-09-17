@@ -42,7 +42,6 @@
         android:ems="10"
         android:hint="Email address"
         android:inputType="textWebEmailAddress"
-        android:text="test@test.hu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addpet_tv_title" />
@@ -57,7 +56,6 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:text="qwepoi1234"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_et_flastName" />

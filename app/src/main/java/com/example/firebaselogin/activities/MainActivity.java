@@ -1,27 +1,21 @@
 package com.example.firebaselogin.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.firebaselogin.network.NetworkChangeListener;
 import com.example.firebaselogin.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText etPassword;
     private TextView tvResetPassword,tvRegister;
     private FirebaseAuth mAuth;
-    private FirebaseUser firebaseUser;
     private NetworkChangeListener networkChangeListener;
 
     //<editor-fold desc="Activity Lifecycle">
@@ -43,41 +36,22 @@ public class MainActivity extends AppCompatActivity {
         initFirebase();
         initNetworkStateListener();
         initGui();
-
-        etBtnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
-
-        tvResetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetPassword();
-            }
-        });
-
-        tvRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                register();
-            }
-        });
+        clearSharedPrefs();
+        loadSharedPrefs();
+        initListeners();
     }
 
     @Override
     protected void onStart() {
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkChangeListener,intentFilter);
-        firebaseUser = mAuth.getCurrentUser();
-        clearSharedPrefs();
         super.onStart();
     }
 
     @Override
     protected void onStop() {
         unregisterReceiver(networkChangeListener);
+        saveSharedPrefs();
         super.onStop();
     }
 
@@ -86,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
         showQuitAlertDialog();
     }
 
+    private void initListeners() {
+        etBtnLogin.setOnClickListener(v -> login());
+        tvResetPassword.setOnClickListener(v -> resetPassword());
+        tvRegister.setOnClickListener(v -> register());
+    }
+
     private void initNetworkStateListener() {
         networkChangeListener = new NetworkChangeListener();
     }
 
     private void initFirebase() {
         mAuth = FirebaseAuth.getInstance();
-        firebaseUser = mAuth.getCurrentUser();
     }
 
     private void resetPassword() {
@@ -110,15 +89,12 @@ public class MainActivity extends AppCompatActivity {
     //</editor-fold>
     private void login() {
         if(areInputFieldsValid(etUsername, etPassword)) {
-            mAuth.signInWithEmailAndPassword(etUsername.getText().toString(),etPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        startUserActivity();
-                    }
-                    else {
-                        Toast.makeText(MainActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+            mAuth.signInWithEmailAndPassword(etUsername.getText().toString(),etPassword.getText().toString()).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    startUserActivity();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Error: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -162,8 +138,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearSharedPrefs() {
-        SharedPreferences sharedPrefs = getSharedPreferences("petData", Context.MODE_PRIVATE);
-        sharedPrefs.edit().clear().commit();
+        SharedPreferences petdataSharedPrefs = getSharedPreferences("petData", Context.MODE_PRIVATE);
+        SharedPreferences ownerSharedPrefs = getSharedPreferences("ownerData", Context.MODE_PRIVATE);
+        petdataSharedPrefs.edit().clear().apply();
+        ownerSharedPrefs.edit().clear().apply();
     }
 
     private void showQuitAlertDialog() {
@@ -172,15 +150,24 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage("Are you sure?")
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setNegativeButton("No", null)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        MainActivity.super.onBackPressed();
-                        finish();
-                    }
+                .setPositiveButton("Yes", (dialogInterface, i) -> {
+                    MainActivity.super.onBackPressed();
+                    finish();
                 });
         AlertDialog alert = alertBuilder.create();
         alert.show();
+    }
+
+    private void saveSharedPrefs() {
+        SharedPreferences sharedPrefs = getSharedPreferences("loginData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putString("lastEmailAddress", etUsername.getText().toString());
+        editor.apply();
+    }
+
+    private void loadSharedPrefs() {
+        SharedPreferences sharedPrefs = getSharedPreferences("ownerData", Context.MODE_PRIVATE);
+        etUsername.setText(sharedPrefs.getString("lastEmailAddress",""));
     }
 
     private void initGui() {

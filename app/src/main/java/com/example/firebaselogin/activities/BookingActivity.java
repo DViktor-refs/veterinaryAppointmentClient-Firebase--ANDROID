@@ -2,7 +2,6 @@ package com.example.firebaselogin.activities;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
@@ -17,9 +16,6 @@ import android.widget.TextView;
 import com.example.firebaselogin.R;
 import com.example.firebaselogin.models.Reservation;
 import com.example.firebaselogin.network.NetworkChangeListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,11 +31,8 @@ import java.util.Locale;
 
 public class BookingActivity extends AppCompatActivity {
 
-    private FirebaseDatabase rootDb;
     private DatabaseReference dbRef;
     private FirebaseUser user;
-    private  FirebaseAuth mAuth;
-    private  Calendar c;
     private  SimpleDateFormat sdf;
     private  CalendarView calendarView;
     private  Spinner spinner;
@@ -58,22 +51,7 @@ public class BookingActivity extends AppCompatActivity {
         initDb();
         initCalendar();
         setCurrentDateOnGui();
-
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                tvSelectedDate.setText(getConvertedDateFormat(year, month, dayOfMonth));
-                updateSpinner();
-            }
-        });
-
-        btnReservation.setOnClickListener(v -> {
-            sendReservationToDb(
-                    spinner.getSelectedItem().toString(),
-                    tvSelectedDate.getText().toString(),
-                    user.getEmail()
-                    );
-        });
+        initListeners();
     }
 
     @Override
@@ -91,6 +69,19 @@ public class BookingActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    private void initListeners() {
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            tvSelectedDate.setText(getConvertedDateFormat(year, month, dayOfMonth));
+            updateSpinner();
+        });
+
+        btnReservation.setOnClickListener(v -> sendReservationToDb(
+                spinner.getSelectedItem().toString(),
+                tvSelectedDate.getText().toString(),
+                user.getEmail()
+        ));
+    }
+
     private void sendReservationToDb(String selectedItemInSpinner, String date, String userEmail) {
         String path = date.replaceAll("/","") + "/" + selectedItemInSpinner;
         Log.d(TAG, "sendReservationToDb: date = " + path);
@@ -103,36 +94,24 @@ public class BookingActivity extends AppCompatActivity {
         String selectedDate = tvSelectedDate.getText().toString();
         selectedDate = selectedDate.replaceAll("/","");
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference(selectedDate);
-        dbRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                List<String> templist = new ArrayList<>(Arrays.asList(reservableTimeIntervalsArr));
-                for (DataSnapshot snapshot : task.getResult().getChildren()) {
-                    for (int i = 0; i < templist.size(); i++) {
-                        if (templist.get(i).equals(snapshot.getKey())) {
-                            templist.remove(i);
-                        }
+
+        dbRef.get().addOnCompleteListener(task -> {
+            List<String> templist = new ArrayList<>(Arrays.asList(reservableTimeIntervalsArr));
+            for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                for (int i = 0; i < templist.size(); i++) {
+                    if (templist.get(i).equals(snapshot.getKey())) {
+                        templist.remove(i);
                     }
                 }
-                setSpinnerItems(templist);
-                if (templist.size()==0) {
-                    btnReservation.setEnabled(false);
-                }
-                else {
-                    btnReservation.setEnabled(true);
-                }
+            }
+            setSpinnerItems(templist);
+            btnReservation.setEnabled(templist.size() != 0);
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                btnReservation.setEnabled(false);
-            }
-        });
+        }).addOnFailureListener(e -> btnReservation.setEnabled(false));
     }
 
     private void setSpinnerItems(List<String> templist) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, templist);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -173,14 +152,14 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void initDb() {
-        rootDb = FirebaseDatabase.getInstance();
+        FirebaseDatabase rootDb = FirebaseDatabase.getInstance();
         dbRef = rootDb.getReference();
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
     }
 
     private void initCalendar() {
-        c = Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
         calendarView.setMinDate(c.getTimeInMillis());
         sdf = new SimpleDateFormat("yyMMdd");
         updateSpinner();
@@ -196,7 +175,7 @@ public class BookingActivity extends AppCompatActivity {
 
     @SuppressWarnings("deprecation")
     private void changeLocationToHu() {
-        String languageToLoad  = "hu"; // your language
+        String languageToLoad  = "hu";
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();

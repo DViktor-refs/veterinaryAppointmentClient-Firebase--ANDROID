@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">AppointmentForYourPet</string>
+    <string name="petNameTitleHUN">Kedvenc neve:</string>
+    <string name="petSpecieTitleHUN">Állat fajtája:</string>
+    <string name="petAgeTitleHUN">Kor:</string>
+    <string name="isPetVaccinatedTitleHUN">Oltott:</string>
+    <string name="isPetNeuteredTitleHUN">Ivartalanított:</string>
+    <string name="addNewPetTitleHUN">Kedvenc hozzáadása</string>
+    <string name="addPetButtonHUN">KEdvenc hozzáadása</string>
+    <string name="etPetNameHUN">Kedvenc neve</string>
+    <string name="etPetAgeHintHUN">kor</string>
+    <string name="etAgeDefaultValueZeroHUN">0</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="ClinicTitleField">Clinic</string>
+    <string name="veterinaryTitleField">VETERINARY</string>
 
     <array name="petSpecies">
         <item>"Kutya"</item>
